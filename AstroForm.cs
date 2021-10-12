@@ -245,5 +245,43 @@ namespace SprintOneFramework
             Console.WriteLine("Mode is " + mode);
             //this is a github test
         }
+
+        private void ButtonAverage_Click(object sender, EventArgs e)
+        {
+            int sum = 0;
+            int average = 0;
+
+            for (int x = 0; x < DataArray.Length; x++)
+            {
+                sum += DataArray[x];
+            }
+            average = sum / DataArray.Length;
+            AverageTextBox.Text = average.ToString();
+            StatusMessage.Text = "The sum of elements in the list is: " + sum;
+            
+        }
+
+        private void MidExtremeButton_Click(object sender, EventArgs e)
+        {
+            int minRange = DataArray[0];
+            int maxRange = DataArray[0];
+
+            int midExtreme = (minRange + maxRange) / 2;
+
+            for (int i = 0; i < ArraySize; i++)
+            {
+                if (DataArray[i] > maxRange)
+                {
+                    maxRange = DataArray[i];
+                }
+                else if (DataArray[i] < minRange)
+                {
+                    minRange = DataArray[i];
+                }
+                midExtreme = (minRange + maxRange) / 2;
+                MidExtremeTextBox.Text = midExtreme.ToString();
+                StatusMessage.Text = "The mid-extreme of this array is: " + midExtreme;
+            }
+        }   
     }
 }
